@@ -4,6 +4,7 @@ public class Passagem {
 
     private long passagemId;
     private String rota;
+    private String cpfCliente;
 
 
     public long getPassagemId() {
@@ -12,6 +13,10 @@ public class Passagem {
 
     public String getRota() {
         return rota;
+    }
+
+    public String cpfCliente() {
+        return cpfCliente;
     }
 
 

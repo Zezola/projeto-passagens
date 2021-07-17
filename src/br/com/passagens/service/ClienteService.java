@@ -7,7 +7,12 @@ import java.util.List;
 
 public class ClienteService {
 
-    private List<Cliente> clientes = new ArrayList<Cliente>();
+
+    protected List<Cliente> clientes = new ArrayList<Cliente>();
+
+
+
+
 
     public void addCliente(Cliente cliente) {
         clientes.add(cliente);
