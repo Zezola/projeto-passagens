@@ -19,7 +19,12 @@ public class CadastroDeClientes {
         System.out.println("NOME");
         nome = cadastroInput.next();
         Cliente clienteModel = new Cliente(nome, cpf);
-        clienteService.addCliente(clienteModel);
+        if (clienteService.addCliente(clienteModel)) {
+            System.out.println("CADASTRADO COM SUCESSO");
+            clienteService.exibirClientes();
+        } else {
+            System.out.println("ALGO DEU ERRADO");
+        }
 
     }
 

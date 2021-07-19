@@ -8,14 +8,15 @@ import java.util.List;
 public class ClienteService {
 
 
-    protected List<Cliente> clientes = new ArrayList<Cliente>();
+    private static List<Cliente> clientes = new ArrayList<Cliente>();
+
+    public List<Cliente> getClientes () {
+        return clientes;
+    }
 
 
-
-
-
-    public void addCliente(Cliente cliente) {
-        clientes.add(cliente);
+    public boolean addCliente(Cliente cliente) {
+      return  clientes.add(cliente);
     }
 
     public void exibirClientes() {

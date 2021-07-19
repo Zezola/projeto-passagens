@@ -3,28 +3,42 @@ package br.com.passagens.client;
 import br.com.passagens.entity.Cliente;
 import br.com.passagens.service.ClienteService;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class Login extends ClienteService {
+public class Login  {
     private boolean logado = false;
     private Scanner inputUsuario = new Scanner(System.in);
+    private ClienteService clienteService = new ClienteService();
+    private List<Cliente> clientes = clienteService.getClientes();
 
 
-    public boolean logar() {
-        System.out.println("CPF");
+    public String coletaInputCpf() {
+        System.out.println("Cpf");
         String cpfCliente = inputUsuario.next();
-        System.out.println("NOME");
+        return cpfCliente;
+    }
+
+    public String coletaInputNome() {
+        System.out.println("Nome");
         String nomeCliente = inputUsuario.next();
-        for (Cliente cliente:clientes) {
-            if (cliente.getNome().equalsIgnoreCase(nomeCliente) && cliente.getCpf().equals(cpfCliente)) {
-                logado = true;
-                System.out.println("USUARIO AUTENTICADO");
-                return logado;
+        return nomeCliente;
+    }
+
+    public boolean logar(String cpfCliente, String nomeCliente) {
+        System.out.println(clientes);
+        for(Cliente cliente: clientes) {
+            System.out.println(cliente.getNome());
+            if (cpfCliente.equals(cliente.getCpf()) && nomeCliente.equals(cliente.getNome())) {
+                System.out.println("AUTENTICADO");
+                return true;
             }
         }
-        System.out.println("NOME OU CPF INEXISTENTES");
-        return logado;
+        System.out.println("CONTA ERRADA");
+        return false;
     }
+
+
 
 
 }
